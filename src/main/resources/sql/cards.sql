@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS black_cards (
+    id INTEGER NOT NULL PRIMARY KEY,
+    content TEXT NOT NULL,
+    fill_gaps INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS white_cards (
+    id INTEGER NOT NULL PRIMARY KEY,
+    content TEXT NOT NULL
+);
