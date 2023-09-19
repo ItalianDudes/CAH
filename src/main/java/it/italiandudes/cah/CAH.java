@@ -6,7 +6,6 @@ import it.italiandudes.idl.common.InfoFlags;
 import it.italiandudes.idl.common.Logger;
 
 import java.io.IOException;
-import java.util.Random;
 
 public final class CAH {
 
