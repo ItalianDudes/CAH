@@ -1,6 +1,7 @@
 .gradle/
 build/
 client_settings.json
+client_servers.json
 server_settings.json
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/

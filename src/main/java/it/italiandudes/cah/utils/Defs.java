@@ -36,6 +36,12 @@ public final class Defs {
         public static final String ENABLE_DISCORD_RICH_PRESENCE = "enableDiscordRichPresence";
     }
 
+    // JSON Server
+    public static final class ServersKeys {
+        public static final String LIST = "list";
+        public static final String ADDRESS = "address";
+    }
+
     // Resources Location
     public static final class Resources {
 
@@ -51,6 +57,7 @@ public final class Defs {
         public static final class JSON {
             public static final String JSON_DIR = "/json/";
             public static final String JSON_CLIENT_SETTINGS = "client_settings.json";
+            public static final String JSON_CLIENT_SERVERS = "client_servers.json";
             public static final String JSON_SERVER_SETTINGS = "server_settings.json";
             public static final String DEFAULT_JSON_CLIENT_SETTINGS = JSON_DIR + JSON_CLIENT_SETTINGS;
             public static final String DEFAULT_JSON_SERVER_SETTINGS = JSON_DIR + JSON_SERVER_SETTINGS;
@@ -71,6 +78,25 @@ public final class Defs {
         public static final class SQL {
             private static final String SQL_DIR = "/sql/";
             public static final String SQL_CARDS = SQL_DIR + "cards.sql";
+        }
+    }
+
+    // Protocol
+    public static final class Protocol {
+        public static final int SOCKET_TIMEOUT_MILLIS = 10000;
+        public static final class Login {
+            public static final String LOGIN = "login";
+        }
+        public static final class Lobby {
+            private static final String PREFIX_LOBBY = "lobby_";
+            public static final String READY = PREFIX_LOBBY+"ready";
+            public static final String NOT_READY = PREFIX_LOBBY+"not_ready";
+            public static final String LIST = PREFIX_LOBBY+"list";
+            public static final class ListJSON {
+                public static final String LIST = "list";
+                public static final String USERNAME = "username";
+                public static final String IS_READY = "is_ready";
+            }
         }
     }
 }

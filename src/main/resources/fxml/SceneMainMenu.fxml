@@ -25,6 +25,16 @@
                   <Image url="@../image/app-logo.png" />
                </image>
             </ImageView>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#gotoPlayMenu" text="Gioca!">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="16.0" />
+               </font>
+            </Button>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createDatabase" text="Crea Database">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="16.0" />
+               </font>
+            </Button>
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#openSettingsEditor" text="Impostazioni">
                <font>
                   <Font name="Lucida Sans Demibold" size="16.0" />

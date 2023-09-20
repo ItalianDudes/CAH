@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -28,6 +29,7 @@ public final class Client extends Application {
     private static Clipboard SYSTEM_CLIPBOARD = null;
     private static Stage stage = null;
     private static JSONObject SETTINGS = null;
+    private static JSONObject SERVERS = null;
     private static Color COLOR_THEME_BACKGROUND = null;
 
     // JavaFX Application Main
@@ -55,10 +57,36 @@ public final class Client extends Application {
     // Start Methods
     public static void start(String[] args) {
         loadSettingsFile();
+        loadServersFile();
         launch(args);
     }
 
     // Settings Loader
+    public static void loadServersFile() {
+        File serversFile = new File(Defs.Resources.JSON.JSON_CLIENT_SERVERS);
+        if (!serversFile.exists() || !serversFile.isFile()) {
+            try {
+                //noinspection ResultOfMethodCallIgnored
+                serversFile.createNewFile();
+            } catch (IOException e) {
+                Logger.log(e);
+            }
+            SERVERS = new JSONObject();
+            return;
+        }
+        try {
+            Scanner inFile = new Scanner(serversFile);
+            StringBuilder builder = new StringBuilder();
+            while (inFile.hasNext()) {
+                builder.append(inFile.nextLine()).append('\n');
+            }
+            inFile.close();
+            SERVERS = new JSONObject(builder.toString());
+        } catch (FileNotFoundException e) {
+            Logger.log(e);
+            SERVERS = new JSONObject();
+        }
+    }
     public static void loadSettingsFile() {
         File settingsFile = new File(Defs.Resources.JSON.JSON_CLIENT_SETTINGS);
         if (!settingsFile.exists() || !settingsFile.isFile()) {
@@ -119,6 +147,11 @@ public final class Client extends Application {
         }
         writeJSONSettings();
     }
+    public static void writeJSONServers() throws IOException {
+        FileWriter writer = new FileWriter(Defs.Resources.JSON.JSON_CLIENT_SERVERS);
+        writer.append(SERVERS.toString(2));
+        writer.close();
+    }
     public static void writeJSONSettings() throws IOException {
         FileWriter writer = new FileWriter(Defs.Resources.JSON.JSON_CLIENT_SETTINGS);
         writer.append(SETTINGS.toString(2));
@@ -147,6 +180,10 @@ public final class Client extends Application {
     @NotNull
     public static JSONObject getSettings() {
         return SETTINGS;
+    }
+    @NotNull
+    public static JSONObject getServers() {
+        return SERVERS;
     }
     @NotNull
     public static Color getBackgroundThemeColor() {

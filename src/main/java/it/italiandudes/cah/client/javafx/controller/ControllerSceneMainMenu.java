@@ -4,6 +4,7 @@ import it.italiandudes.cah.client.javafx.Client;
 import it.italiandudes.cah.client.javafx.alert.ConfirmationAlert;
 import it.italiandudes.cah.client.javafx.alert.ErrorAlert;
 import it.italiandudes.cah.client.javafx.alert.InformationAlert;
+import it.italiandudes.cah.client.javafx.scene.game.SceneGameMenu;
 import it.italiandudes.cah.client.javafx.scene.SceneLoading;
 import it.italiandudes.cah.client.javafx.scene.SceneSettingsEditor;
 import it.italiandudes.cah.utils.Defs;
@@ -25,7 +26,7 @@ import java.util.jar.Attributes;
 
 public final class ControllerSceneMainMenu {
 
-    //Initialize
+    // Initialize
     @FXML
     private void initialize() {
         Client.getStage().setResizable(true);
@@ -33,6 +34,14 @@ public final class ControllerSceneMainMenu {
     }
 
     // EDT
+    @FXML
+    private void gotoPlayMenu() {
+        Client.getStage().setScene(SceneGameMenu.getScene());
+    }
+    @FXML
+    private void createDatabase() {
+        new InformationAlert("INFO", "Non implementato", "Questa sezione non e' stata ancora implementata, riprova piu' tardi.");
+    }
     @FXML
     private void checkForUpdates() {
         Scene thisScene = Client.getStage().getScene();

@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 
 public final class ControllerSceneLoading {
 
-    //Initialize
+    // Initialize
     @FXML
     private void initialize() {
         Client.getStage().setResizable(true);

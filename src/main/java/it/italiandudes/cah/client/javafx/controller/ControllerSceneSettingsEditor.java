@@ -29,13 +29,13 @@ public final class ControllerSceneSettingsEditor {
     private static final Image WUMPUS = new Image(Defs.Resources.getAsStream(Defs.Resources.Image.IMAGE_WUMPUS));
     private static final Image NO_WUMPUS = new Image(Defs.Resources.getAsStream(Defs.Resources.Image.IMAGE_NO_WUMPUS));
 
-    //Graphic Elements
+    // Graphic Elements
     @FXML private ImageView imageViewEnableDarkMode;
     @FXML private ImageView imageViewEnableDiscordRichPresence;
     @FXML private ToggleButton toggleButtonEnableDarkMode;
     @FXML private ToggleButton toggleButtonEnableDiscordRichPresence;
 
-    //Initialize
+    // Initialize
     @FXML
     private void initialize() {
         Client.getStage().setResizable(true);
