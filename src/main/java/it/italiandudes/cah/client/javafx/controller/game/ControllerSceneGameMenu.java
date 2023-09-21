@@ -6,6 +6,7 @@ import it.italiandudes.cah.client.javafx.alert.ConfirmationAlert;
 import it.italiandudes.cah.client.javafx.alert.ErrorAlert;
 import it.italiandudes.cah.client.javafx.scene.SceneLoading;
 import it.italiandudes.cah.client.javafx.scene.game.SceneGameLobby;
+import it.italiandudes.cah.client.javafx.util.UIElementConfigurator;
 import it.italiandudes.cah.exceptions.connection.InvalidAddressException;
 import it.italiandudes.cah.utils.Defs;
 import it.italiandudes.cah.utils.DiscordRichPresenceManager;
@@ -17,6 +18,8 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -27,6 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.ProtocolException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -36,12 +40,18 @@ public final class ControllerSceneGameMenu {
     // Graphic Elements
     @FXML private TextField textFieldUsername;
     @FXML private TextField textFieldServerAddress;
+    @FXML private Spinner<Integer> spinnerMainPort;
+    @FXML private Spinner<Integer> spinnerServicePort;
     @FXML private ListView<String> listViewServerList;
 
     // Initialize
     @FXML
     private void initialize() {
         Client.getStage().setResizable(true);
+        spinnerMainPort.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 65535, 0, 1));
+        spinnerServicePort.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 65535, 1, 1));
+        spinnerMainPort.getEditor().setTextFormatter(UIElementConfigurator.configureNewIntegerTextFormatter());
+        spinnerServicePort.getEditor().setTextFormatter(UIElementConfigurator.configureNewIntegerTextFormatter());
         loadServerList();
         DiscordRichPresenceManager.updateRichPresenceState(DiscordRichPresenceManager.States.GAME_MENU);
     }
@@ -96,6 +106,8 @@ public final class ControllerSceneGameMenu {
             new ErrorAlert("ERRORE", "Errore di Procedura", "Il campo indirizzo non puo' essere vuoto. Deve contenere un indirizzo server nel formato <indirizzo>:<porta>.");
             return;
         }
+        int mainPort = Integer.parseInt(spinnerMainPort.getEditor().getText());
+        int servicePort = Integer.parseInt(spinnerServicePort.getEditor().getText());
         Scene thisScene = Client.getStage().getScene();
         Client.getStage().setScene(SceneLoading.getScene());
         new Service<Void>() {
@@ -105,7 +117,7 @@ public final class ControllerSceneGameMenu {
                     @Override
                     protected Void call() {
                         try {
-                            if (!ConnectionManager.setServerConnection(serverAddress, username)) {
+                            if (!ConnectionManager.setServerConnection(serverAddress, mainPort, servicePort, username)) {
                                 Platform.runLater(() -> {
                                     if (new ConfirmationAlert("ERRORE", "Errore Interno", "E' stata trovata una connessione gia' aperta nell'applicazione. Questa circostanza e' tipicamente anomala e potrebbe essere causata un errore. Vuoi riprovare a connetterti chiudendo la connessione precedente?").result) {
                                         ConnectionManager.closeConnection();
@@ -148,7 +160,14 @@ public final class ControllerSceneGameMenu {
                                 Client.getStage().setScene(thisScene);
                             });
                             return null;
-                        } catch (IOException e) {
+                        } catch (ProtocolException e) {
+                            Logger.log(e);
+                            Platform.runLater(() -> {
+                                new ErrorAlert("ERRORE", "Errore di Protocollo", "Protocollo non rispettato. Verifica di non aver scambiato la porta principale e quella di servizio o di aver inserito le porte corrette.");
+                                Client.getStage().setScene(thisScene);
+                            });
+                            return null;
+                        }catch (IOException e) {
                             Logger.log(e);
                             Platform.runLater(() -> {
                                 new ErrorAlert("ERRORE", "Errore di Connessione", "Si e' verificato un errore durante la connessione.");

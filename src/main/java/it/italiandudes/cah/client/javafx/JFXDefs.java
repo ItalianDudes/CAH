@@ -34,6 +34,7 @@ public final class JFXDefs {
                 private static final String GAME_DIR = FXML_DIR + "game/";
                 public static final String FXML_GAME_MENU = GAME_DIR + "SceneGameMenu.fxml";
                 public static final String FXML_GAME_LOBBY = GAME_DIR + "SceneGameLobby.fxml";
+                public static final String FXML_GAME_MASTER_CHOOSER = GAME_DIR + "SceneGameMasterChooser.fxml";
             }
         }
 

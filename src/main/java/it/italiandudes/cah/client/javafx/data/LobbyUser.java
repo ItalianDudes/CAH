@@ -1,4 +1,4 @@
-package it.italiandudes.cah.client.connection;
+package it.italiandudes.cah.client.javafx.data;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

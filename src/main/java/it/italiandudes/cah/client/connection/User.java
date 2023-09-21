@@ -8,20 +8,27 @@ import java.util.Objects;
 public class User {
 
     // Attributes
-    @NotNull private final Socket connection;
+    @NotNull private final Socket mainConnection;
+    @NotNull private final Socket serviceConnection;
     @NotNull private final String username;
 
     // Constructors
-    public User(@NotNull final Socket connection, @NotNull final String username) {
-        if (connection.isClosed()) throw new IllegalArgumentException("The socket is closed!");
-        this.connection = connection;
+    public User(@NotNull final Socket mainConnection, @NotNull final Socket serviceConnection, @NotNull final String username) {
+        if (mainConnection.isClosed()) throw new IllegalArgumentException("The main socket is closed!");
+        if (serviceConnection.isClosed()) throw new IllegalArgumentException("The service socket is closed!");
+        this.mainConnection = mainConnection;
+        this.serviceConnection = serviceConnection;
         this.username = username;
     }
 
     // Methods
     @NotNull
-    public Socket getConnection() {
-        return connection;
+    public Socket getMainConnection() {
+        return mainConnection;
+    }
+    @NotNull
+    public Socket getServiceConnection() {
+        return serviceConnection;
     }
     @NotNull
     public String getUsername() {
@@ -32,12 +39,13 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return Objects.equals(getConnection(), user.getConnection()) && Objects.equals(getUsername(), user.getUsername());
+        return Objects.equals(getMainConnection(), user.getMainConnection()) && Objects.equals(getServiceConnection(), user.getServiceConnection()) && Objects.equals(getUsername(), user.getUsername());
     }
     @Override
     public int hashCode() {
-        return Objects.hash(getConnection(), getUsername());
+        return Objects.hash(getMainConnection(), getServiceConnection(), getUsername());
     }
+
     @Override
     public String toString() {
         return username;

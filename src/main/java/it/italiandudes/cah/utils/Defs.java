@@ -17,6 +17,9 @@ public final class Defs {
     // DB Version
     public static final String DB_VERSION = "1.0";
 
+    // Lobby Timer Duration
+    public static final int LOBBY_TIMER_DURATION = 10;
+
     // Jar App Position
     public static final String JAR_POSITION;
     static {
@@ -85,13 +88,17 @@ public final class Defs {
     public static final class Protocol {
         public static final int SOCKET_TIMEOUT_MILLIS = 10000;
         public static final class Login {
-            public static final String LOGIN = "login";
+            public static final String MAIN_LOGIN = "main_login";
+            public static final String SERVICE_LOGIN = "service_login";
         }
         public static final class Lobby {
             private static final String PREFIX_LOBBY = "lobby_";
             public static final String READY = PREFIX_LOBBY+"ready";
             public static final String NOT_READY = PREFIX_LOBBY+"not_ready";
             public static final String LIST = PREFIX_LOBBY+"list";
+            public static final String START_INIT = PREFIX_LOBBY+"start_init";
+            public static final String START_INTERRUPT = PREFIX_LOBBY+"start_interrupt";
+            public static final String START = PREFIX_LOBBY+"start";
             public static final class ListJSON {
                 public static final String LIST = "list";
                 public static final String USERNAME = "username";
