@@ -96,8 +96,8 @@ public final class ControllerSceneGameLobby {
 
     // Methods
     private void updateList() throws IOException {
-        RawSerializer.sendString(ConnectionManager.getUser().getMainConnection().getOutputStream(), Defs.Protocol.Lobby.LIST);
-        JSONObject users = new JSONObject(RawSerializer.receiveString(ConnectionManager.getUser().getMainConnection().getInputStream()));
+        RawSerializer.sendString(ConnectionManager.getUser().getServiceConnection().getOutputStream(), Defs.Protocol.Lobby.LIST);
+        JSONObject users = new JSONObject(RawSerializer.receiveString(ConnectionManager.getUser().getServiceConnection().getInputStream()));
         JSONArray list = users.getJSONArray(Defs.Protocol.Lobby.ListJSON.LIST);
         ObservableList<LobbyUser> fxList = listViewUsers.getItems();
         ArrayList<LobbyUser> jsonList = new ArrayList<>();
