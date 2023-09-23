@@ -24,7 +24,7 @@
           <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <TextArea fx:id="textAreaBlackCard" editable="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" text="Carta Nera" wrapText="true">
+            <TextArea fx:id="textAreaBlackCard" editable="false" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: black; -fx-text-fill: white;" text="Carta Nera" wrapText="true">
                <font>
                   <Font name="Lucida Sans Demibold" size="25.0" />
                </font>

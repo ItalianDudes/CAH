@@ -23,7 +23,7 @@ public final class ControllerSceneGameMasterChooser {
     private void initialize() {
         Client.getStage().setResizable(true);
         if (ConnectionManager.isClosed()) {
-            new ErrorAlert("ERRORE", "Errore di Connessione", "La connessione non e' caduta per cui non e' possibile continuare. Ritorno al menu di selezione del server.");
+            new ErrorAlert("ERRORE", "Errore di Connessione", "La connessione e' stata interrotta per cui non e' possibile procedere oltre. Ritorno al menu di selezione del server.");
             Client.getStage().setScene(SceneGameMenu.getScene());
             return;
         }

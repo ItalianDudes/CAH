@@ -3,6 +3,7 @@ package it.italiandudes.cah.client.javafx.components;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.layout.*;
 import org.jetbrains.annotations.NotNull;
@@ -22,12 +23,12 @@ public final class PlayerCardsContainer extends GridPane {
     public PlayerCardsContainer() {
         super();
         this.setStyle("-fx-border-color: black;-fx-border-radius: 4px;-fx-border-width: 2px;");
-        this.setMinSize(StackPane.USE_COMPUTED_SIZE, StackPane.USE_COMPUTED_SIZE);
-        this.setPrefSize(StackPane.USE_COMPUTED_SIZE, StackPane.USE_COMPUTED_SIZE);
-        this.setMaxSize(StackPane.USE_COMPUTED_SIZE, StackPane.USE_COMPUTED_SIZE);
+        this.setMinSize(GridPane.USE_COMPUTED_SIZE, GridPane.USE_COMPUTED_SIZE);
+        this.setPrefSize(GridPane.USE_COMPUTED_SIZE, GridPane.USE_COMPUTED_SIZE);
+        this.setMaxSize(GridPane.USE_COMPUTED_SIZE, GridPane.USE_COMPUTED_SIZE);
         this.setFocusTraversable(false);
         this.setPadding(new Insets(5));
-        this.setAlignment(Pos.CENTER_LEFT);
+        this.setAlignment(Pos.CENTER);
         this.setHgap(5);
     }
 
@@ -55,6 +56,7 @@ public final class PlayerCardsContainer extends GridPane {
     public void addWhiteCard(@NotNull final WhiteCard whiteCard) {
         if (columns == 0) {
             this.add(whiteCard, 0, 0);
+            getRowConstraints().add(new RowConstraints(GridPane.USE_COMPUTED_SIZE, GridPane.USE_COMPUTED_SIZE, GridPane.USE_COMPUTED_SIZE, Priority.SOMETIMES, VPos.CENTER, true));
         } else {
             this.addColumn(columns, whiteCard);
         }

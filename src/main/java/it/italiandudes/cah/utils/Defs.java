@@ -87,6 +87,13 @@ public final class Defs {
         }
     }
 
+    // Winning Results JSON Structure
+    public static final class WinningResultsJSONStructure {
+        public static final String WINNER_NAME = "winner_name";
+        public static final String BLACK_CARD = "black_card";
+        public static final String WHITE_CARDS = "white_cards";
+    }
+
     // Protocol
     public static final class Protocol {
         public static final int SOCKET_TIMEOUT_MILLIS = 10000;
@@ -110,15 +117,20 @@ public final class Defs {
         }
         public static final class Server {
             public static final String GAME_END = "game_end";
-            public static final String YOU_WIN = "you_win";
-            public static final String YOU_LOST = "you_lost";
+            public static final String WINNING_RESULT = "winning_result";
+            public static final String BLACK_CARD = "black_card";
+            public static final String WHITE_CARDS = "white_cards";
+        }
+        public static final class Common {
+            public static final String GOTO_LOBBY = "goto_lobby";
+            public static final String DISCONNECT = "disconnect";
+        }
+        public static final class Player {
+            public static final String CHOSEN_CARDS = "chosen_cards";
         }
         public static final class Master {
-            public static final class WaitWhiteCards {
-                public static final String WINNING_CARDS = "winning_cards";
-                public static final String BLACK_CARD = "black_card";
-                public static final String PLAYER_WHITE_CARDS = "player_white_cards";
-            }
+            public static final String WINNING_CARDS = "winning_cards";
+            public static final String PLAYER_WHITE_CARDS = "player_white_cards";
         }
     }
 }

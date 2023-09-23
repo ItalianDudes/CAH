@@ -17,6 +17,7 @@ public final class DiscordRichPresenceManager {
         public static final String GAME_MASTER_CHOOSER = "Aspettando la selezione del GM";
         public static final String IN_GAME_MASTER = "In gioco come Master";
         public static final String IN_GAME_PLAYER = "In gioco come Giocatore";
+        public static final String WINNING_CARDS = "Guardando le scelte del giocatore vincente";
     }
 
     // Attributes

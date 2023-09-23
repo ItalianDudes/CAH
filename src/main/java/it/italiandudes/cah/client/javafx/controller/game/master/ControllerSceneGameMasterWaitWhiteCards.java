@@ -48,12 +48,11 @@ public final class ControllerSceneGameMasterWaitWhiteCards {
     private void initialize() {
         Client.getStage().setResizable(true);
         if (ConnectionManager.isClosed()) {
-            new ErrorAlert("ERRORE", "Errore di Connessione", "La connessione non e' stabilita per cui non e' possibile procedere oltre. Ritorno al menu di selezione del server.");
+            new ErrorAlert("ERRORE", "Errore di Connessione", "La connessione e' stata interrotta per cui non e' possibile procedere oltre. Ritorno al menu di selezione del server.");
             Client.getStage().setScene(SceneGameMenu.getScene());
             return;
         }
         DiscordRichPresenceManager.updateRichPresenceState(DiscordRichPresenceManager.States.IN_GAME_MASTER);
-        textAreaBlackCard.setStyle("-fx-background-color: black;-fx-text-fill: white;");
         initChooserGridPane();
         waitForPlayerCards();
         Platform.runLater(() -> textAreaBlackCard.lookup(".content").setStyle("-fx-background-color: black;"));
@@ -69,7 +68,7 @@ public final class ControllerSceneGameMasterWaitWhiteCards {
                     protected Void call() {
                         String base64cards = null;
                         try {
-                            if (RawSerializer.receiveString(ConnectionManager.getUser().getMainConnection().getInputStream()).equals(Defs.Protocol.Master.WaitWhiteCards.PLAYER_WHITE_CARDS)) {
+                            if (RawSerializer.receiveString(ConnectionManager.getUser().getMainConnection().getInputStream()).equals(Defs.Protocol.Master.PLAYER_WHITE_CARDS)) {
                                 base64cards = RawSerializer.receiveString(ConnectionManager.getUser().getMainConnection().getInputStream());
                             } else {
                                 throw new ProtocolException("Protocol not respected");
@@ -171,7 +170,7 @@ public final class ControllerSceneGameMasterWaitWhiteCards {
                                                         @Override
                                                         protected Void call() {
                                                             try {
-                                                                RawSerializer.sendString(ConnectionManager.getUser().getMainConnection().getOutputStream(), Defs.Protocol.Master.WaitWhiteCards.WINNING_CARDS);
+                                                                RawSerializer.sendString(ConnectionManager.getUser().getMainConnection().getOutputStream(), Defs.Protocol.Master.WINNING_CARDS);
                                                                 RawSerializer.sendString(ConnectionManager.getUser().getMainConnection().getOutputStream(), winnerCardContainer.getWhiteCardsAsJSONBase64Encoded());
                                                                 if (RawSerializer.receiveString(ConnectionManager.getUser().getMainConnection().getInputStream()).equals(Defs.Protocol.Server.GAME_END)) {
                                                                     Platform.runLater(() -> Client.getStage().setScene(SceneGameWinnerMenu.getScene()));

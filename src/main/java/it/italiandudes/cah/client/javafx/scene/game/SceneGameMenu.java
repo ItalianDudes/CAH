@@ -14,7 +14,7 @@ public final class SceneGameMenu {
     //Scene Generator
     public static Scene getScene(){
         try {
-            Scene scene = new Scene(FXMLLoader.load(Defs.Resources.get(JFXDefs.Resources.FXML.Game.Master.FXML_GAME_MASTER_WAIT_CARDS)));
+            Scene scene = new Scene(FXMLLoader.load(Defs.Resources.get(JFXDefs.Resources.FXML.Game.FXML_GAME_WINNER_MENU)));
             ThemeHandler.loadConfigTheme(scene);
             return scene;
         }catch (IOException e){
