@@ -8,6 +8,11 @@ import javafx.stage.Screen;
 @SuppressWarnings("unused")
 public final class JFXDefs {
 
+    // Pre-Loaded Resources
+    public static final class PreloadedResources {
+        public static final Image WINNING_CUP = new Image(Defs.Resources.getAsStream(Defs.Resources.Image.IMAGE_WINNING_CUP));
+    }
+
     //App Info
     public static final class AppInfo {
         public static final String NAME = "Cards Against Humanity";
@@ -35,6 +40,15 @@ public final class JFXDefs {
                 public static final String FXML_GAME_MENU = GAME_DIR + "SceneGameMenu.fxml";
                 public static final String FXML_GAME_LOBBY = GAME_DIR + "SceneGameLobby.fxml";
                 public static final String FXML_GAME_MASTER_CHOOSER = GAME_DIR + "SceneGameMasterChooser.fxml";
+                public static final String FXML_GAME_WINNER_MENU = GAME_DIR + "SceneGameWinnerMenu.fxml";
+                public static final class Master {
+                    private static final String MASTER_DIR = GAME_DIR + "master/";
+                    public static final String FXML_GAME_MASTER_WAIT_CARDS = MASTER_DIR + "SceneGameMasterWaitWhiteCards.fxml";
+                }
+                public static final class Player {
+                    private static final String PLAYER_DIR = GAME_DIR + "player/";
+                    public static final String FXML_GAME_PLAYER_CARDS_CHOOSER = PLAYER_DIR + "SceneGamePlayerCardsChooser.fxml";
+                }
             }
         }
 

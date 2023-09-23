@@ -1,4 +1,4 @@
-package it.italiandudes.cah.client.javafx.scene.game;
+package it.italiandudes.cah.client.javafx.scene.game.master;
 
 import it.italiandudes.cah.client.javafx.JFXDefs;
 import it.italiandudes.cah.client.javafx.util.ThemeHandler;
@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
-public final class SceneGameMenu {
+public final class SceneGameMasterWaitWhiteCards {
 
     //Scene Generator
     public static Scene getScene(){
