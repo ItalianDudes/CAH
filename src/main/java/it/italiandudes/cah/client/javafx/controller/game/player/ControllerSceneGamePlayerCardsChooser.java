@@ -75,6 +75,9 @@ public final class ControllerSceneGamePlayerCardsChooser {
                                         for (int i = 0; i < cardsArray.length(); i++) {
                                             whiteCards[i] = new WhiteCard(cardsArray.getString(i));
                                             whiteCards[i].setStyle(whiteCards[i].getStyle() + "-fx-border-color: black;-fx-border-radius: 2px;-fx-border-width: 2px;");
+                                            whiteCards[i].setMinSize(TextArea.USE_PREF_SIZE, TextArea.USE_PREF_SIZE);
+                                            whiteCards[i].setPrefSize(240, 280);
+                                            whiteCards[i].setMaxSize(TextArea.USE_PREF_SIZE, TextArea.USE_PREF_SIZE);
                                         }
                                         textAreaBlackCard.setText(blackCard);
                                         gridPaneWhiteCard.add(whiteCards[0], 0, 1);
