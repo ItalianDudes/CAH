@@ -94,6 +94,13 @@ public final class Defs {
         public static final String WHITE_CARDS = "white_cards";
     }
 
+    // Game Cards JSON Structure
+    public static final class GameCardsJSONStructure {
+        public static final String BLACK_CARD = "black_card";
+        public static final String CARDS_TO_CHOOSE = "cards_to_choose";
+        public static final String WHITE_CARDS = "white_cards";
+    }
+
     // Protocol
     public static final class Protocol {
         public static final int SOCKET_TIMEOUT_MILLIS = 10000;
@@ -118,8 +125,7 @@ public final class Defs {
         public static final class Server {
             public static final String GAME_END = "game_end";
             public static final String WINNING_RESULT = "winning_result";
-            public static final String BLACK_CARD = "black_card";
-            public static final String WHITE_CARDS = "white_cards";
+            public static final String CARDS = "cards";
         }
         public static final class Common {
             public static final String GOTO_LOBBY = "goto_lobby";
