@@ -10,7 +10,7 @@ import org.json.JSONTokener;
 
 import java.io.*;
 
-public final class ServerConfiguration {
+public final class ServerSettings {
 
     // Methods
     @Nullable

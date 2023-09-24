@@ -116,6 +116,9 @@ public final class Defs {
         public static final class Login {
             public static final String MAIN_LOGIN = "main_login";
             public static final String SERVICE_LOGIN = "service_login";
+            public static final int OK = 1;
+            public static final int NOT_OK = 0;
+            public static final int ERROR = -1;
         }
         public static final class Lobby {
             private static final String PREFIX_LOBBY = "lobby_";
