@@ -19,6 +19,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 
+@SuppressWarnings("unused")
 public final class ControllerSceneSettingsEditor {
 
     // Attributes

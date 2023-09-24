@@ -2,7 +2,6 @@ package it.italiandudes.cah.client.javafx.controller.game.master;
 
 import it.italiandudes.cah.client.connection.ConnectionManager;
 import it.italiandudes.cah.client.javafx.Client;
-import it.italiandudes.cah.client.javafx.JFXDefs;
 import it.italiandudes.cah.client.javafx.alert.ErrorAlert;
 import it.italiandudes.cah.client.javafx.components.PlayerCardsContainer;
 import it.italiandudes.cah.client.javafx.components.WhiteCard;
@@ -19,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -33,6 +33,9 @@ import java.util.Base64;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public final class ControllerSceneGameMasterWaitWhiteCards {
+
+    // Images
+    private static final Image WINNING_CUP = new Image(Defs.Resources.getAsStream(Defs.Resources.Image.IMAGE_WINNING_CUP));
 
     // Attributes
     private int playerNumber;
@@ -153,7 +156,7 @@ public final class ControllerSceneGameMasterWaitWhiteCards {
                                     gridPanePlayerCardsContainer.getRowConstraints().add(new RowConstraints(GridPane.USE_COMPUTED_SIZE, GridPane.USE_COMPUTED_SIZE, GridPane.USE_COMPUTED_SIZE, Priority.SOMETIMES, VPos.CENTER, true));
                                 }
                                 for (int i = 0; i < playerNumber; i++) {
-                                    ImageView img = new ImageView(JFXDefs.PreloadedResources.WINNING_CUP);
+                                    ImageView img = new ImageView(WINNING_CUP);
                                     img.setFitWidth(30);
                                     img.setFitHeight(30);
                                     Button btn = new Button(null, img);

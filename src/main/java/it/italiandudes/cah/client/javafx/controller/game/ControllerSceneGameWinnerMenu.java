@@ -53,8 +53,6 @@ public final class ControllerSceneGameWinnerMenu {
     private void initFields() {
         winningCardContainer = new PlayerCardsContainer();
         gridPaneWinnerChoices.add(winningCardContainer, 1, 0);
-        winningCardContainer.addWhiteCard(new WhiteCard("Test 1"));
-        winningCardContainer.addWhiteCard(new WhiteCard("Test 2"));
         new Service<Void>() {
             @Override
             protected Task<Void> createTask() {

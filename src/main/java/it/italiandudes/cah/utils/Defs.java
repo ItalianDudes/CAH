@@ -75,8 +75,6 @@ public final class Defs {
             public static final String IMAGE_CROSS = IMAGE_DIR + "cross.png";
             public static final String IMAGE_WUMPUS = IMAGE_DIR + "wumpus.png";
             public static final String IMAGE_NO_WUMPUS = IMAGE_DIR + "no_wumpus.png";
-            public static final String IMAGE_WHITE_CARD = IMAGE_DIR + "white_card.png";
-            public static final String IMAGE_BLACK_CARD = IMAGE_DIR + "black_card.png";
             public static final String IMAGE_WINNING_CUP = IMAGE_DIR + "winning_cup.png";
         }
 

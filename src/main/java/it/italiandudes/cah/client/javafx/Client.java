@@ -23,6 +23,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+@SuppressWarnings("unused")
 public final class Client extends Application {
 
     // Attributes
@@ -84,6 +85,8 @@ public final class Client extends Application {
             SERVERS = new JSONObject(builder.toString());
         } catch (FileNotFoundException e) {
             Logger.log(e);
+            SERVERS = new JSONObject();
+        } catch (JSONException e) {
             SERVERS = new JSONObject();
         }
     }

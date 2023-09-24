@@ -5,13 +5,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.stage.Screen;
 
-@SuppressWarnings("unused")
 public final class JFXDefs {
-
-    // Pre-Loaded Resources
-    public static final class PreloadedResources {
-        public static final Image WINNING_CUP = new Image(Defs.Resources.getAsStream(Defs.Resources.Image.IMAGE_WINNING_CUP));
-    }
 
     //App Info
     public static final class AppInfo {
@@ -48,14 +42,9 @@ public final class JFXDefs {
                 public static final class Player {
                     private static final String PLAYER_DIR = GAME_DIR + "player/";
                     public static final String FXML_GAME_PLAYER_CARDS_CHOOSER = PLAYER_DIR + "SceneGamePlayerCardsChooser.fxml";
+                    public static final String FXML_GAME_PLAYER_WAIT_MASTER = PLAYER_DIR + "SceneGamePlayerWaitMaster.fxml";
                 }
             }
-        }
-
-        //GIF Location
-        public static final class GIF {
-            private static final String GIF_DIR = "/gif/";
-            public static final String GIF_LOADING = GIF_DIR+"loading.gif";
         }
 
         // CSS Location
@@ -69,9 +58,6 @@ public final class JFXDefs {
         public static final class Image {
             private static final String IMAGE_DIR = "/image/";
             public static final String IMAGE_LOGO = IMAGE_DIR+"app-logo.png";
-            public static final String IMAGE_FILE_EXPLORER = IMAGE_DIR+"file-explorer.png";
-            public static final String IMAGE_PLAY = IMAGE_DIR + "play.png";
-            public static final String IMAGE_STOP = IMAGE_DIR + "stop.png";
         }
 
     }

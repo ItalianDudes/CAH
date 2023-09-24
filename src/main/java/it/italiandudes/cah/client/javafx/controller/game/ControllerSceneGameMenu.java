@@ -85,13 +85,19 @@ public final class ControllerSceneGameMenu {
     @FXML
     private void detectEnterOnElement(@NotNull final KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER && listViewServerList.getSelectionModel().getSelectedItem() != null) {
-            textFieldServerAddress.setText(listViewServerList.getSelectionModel().getSelectedItem());
+            String[] splitAddress = listViewServerList.getSelectionModel().getSelectedItem().split(" # ");
+            textFieldServerAddress.setText(splitAddress[0]);
+            spinnerMainPort.getValueFactory().setValue(Integer.parseInt(splitAddress[1]));
+            spinnerServicePort.getValueFactory().setValue(Integer.parseInt(splitAddress[2]));
         }
     }
     @FXML
     private void detectDoubleClickOnElement(@NotNull final MouseEvent event) {
         if (event.getClickCount() >= 2 && listViewServerList.getSelectionModel().getSelectedItem() != null) {
-            textFieldServerAddress.setText(listViewServerList.getSelectionModel().getSelectedItem());
+            String[] splitAddress = listViewServerList.getSelectionModel().getSelectedItem().split(" # ");
+            textFieldServerAddress.setText(splitAddress[0]);
+            spinnerMainPort.getValueFactory().setValue(Integer.parseInt(splitAddress[1]));
+            spinnerServicePort.getValueFactory().setValue(Integer.parseInt(splitAddress[2]));
         }
     }
     @FXML
@@ -108,6 +114,10 @@ public final class ControllerSceneGameMenu {
         }
         int mainPort = Integer.parseInt(spinnerMainPort.getEditor().getText());
         int servicePort = Integer.parseInt(spinnerServicePort.getEditor().getText());
+        if (mainPort == servicePort) {
+            new ErrorAlert("ERRORE", "Errore di I/O", "La porta principale e quella di servizio non possono essere uguali.");
+            return;
+        }
         Scene thisScene = Client.getStage().getScene();
         Client.getStage().setScene(SceneLoading.getScene());
         new Service<Void>() {
@@ -130,7 +140,7 @@ public final class ControllerSceneGameMenu {
                                 return null;
                             }
                             JSONObject o = new JSONObject();
-                            o.put(Defs.ServersKeys.ADDRESS, serverAddress);
+                            o.put(Defs.ServersKeys.ADDRESS, serverAddress + " # " + mainPort + " # " + servicePort);
                             Client.getServers().getJSONArray(Defs.ServersKeys.LIST).put(o);
                             try {
                                 Client.writeJSONServers();

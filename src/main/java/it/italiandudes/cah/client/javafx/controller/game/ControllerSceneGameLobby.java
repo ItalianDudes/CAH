@@ -1,10 +1,10 @@
 package it.italiandudes.cah.client.javafx.controller.game;
 
 import it.italiandudes.cah.client.connection.ConnectionManager;
-import it.italiandudes.cah.client.javafx.data.LobbyUser;
 import it.italiandudes.cah.client.connection.User;
 import it.italiandudes.cah.client.javafx.Client;
 import it.italiandudes.cah.client.javafx.alert.ErrorAlert;
+import it.italiandudes.cah.client.javafx.data.LobbyUser;
 import it.italiandudes.cah.client.javafx.scene.game.SceneGameMasterChooser;
 import it.italiandudes.cah.client.javafx.scene.game.SceneGameMenu;
 import it.italiandudes.cah.utils.Defs;

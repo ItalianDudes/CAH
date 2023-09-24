@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import java.net.Socket;
 import java.util.Objects;
 
-public class User {
+public final class User {
 
     // Attributes
     @NotNull private final Socket mainConnection;
