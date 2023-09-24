@@ -49,12 +49,14 @@ public final class ServerConfiguration {
             defaultServerSettings = new JSONObject(new JSONTokener(inputStream));
         }
         try {
-            serverSettings.getInt(Defs.ServerSettingsKeys.MAIN_PORT);
+            int mainPort = serverSettings.getInt(Defs.ServerSettingsKeys.MAIN_PORT);
+            if (mainPort <= 0 || mainPort >= 65535) throw new  JSONException("");
         } catch (JSONException e) {
             serverSettings.put(Defs.ServerSettingsKeys.MAIN_PORT, defaultServerSettings.getInt(Defs.ServerSettingsKeys.MAIN_PORT));
         }
         try {
-            serverSettings.get(Defs.ServerSettingsKeys.SERVICE_PORT);
+            int servicePort = serverSettings.getInt(Defs.ServerSettingsKeys.SERVICE_PORT);
+            if (servicePort <= 0 || servicePort >= 65535) throw new JSONException("");
         } catch (JSONException e) {
             serverSettings.put(Defs.ServerSettingsKeys.SERVICE_PORT, defaultServerSettings.getInt(Defs.ServerSettingsKeys.SERVICE_PORT));
         }
