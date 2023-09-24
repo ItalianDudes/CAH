@@ -28,7 +28,7 @@ public final class DiscordRichPresenceManager {
     // Rich Presence Initializer
     private static void initializeRichPresence() {
         try {
-            if (!Client.getSettings().getBoolean(Defs.SettingsKeys.ENABLE_DISCORD_RICH_PRESENCE)) return;
+            if (!Client.getSettings().getBoolean(Defs.ClientSettingsKeys.ENABLE_DISCORD_RICH_PRESENCE)) return;
         } catch (Throwable e) {
             return;
         }
@@ -51,7 +51,7 @@ public final class DiscordRichPresenceManager {
     }
     public static void updateRichPresenceState(@Nullable final String state) {
         try {
-            if (!Client.getSettings().getBoolean(Defs.SettingsKeys.ENABLE_DISCORD_RICH_PRESENCE)) return;
+            if (!Client.getSettings().getBoolean(Defs.ClientSettingsKeys.ENABLE_DISCORD_RICH_PRESENCE)) return;
         } catch (Throwable e) {
             return;
         }

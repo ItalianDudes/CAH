@@ -18,7 +18,7 @@ public final class Defs {
     public static final String DB_VERSION = "1.0";
 
     // Lobby Timer Duration
-    public static final int LOBBY_TIMER_DURATION = 10;
+    public static final int LOBBY_TIMER_DURATION_SECONDS = 10;
 
     // Jar App Position
     public static final String JAR_POSITION;
@@ -35,13 +35,19 @@ public final class Defs {
         public static final String SERVER = "-server";
     }
 
-    // JSON Settings
-    public static final class SettingsKeys {
+    // JSON Client Settings
+    public static final class ClientSettingsKeys {
         public static final String ENABLE_DARK_MODE = "enableDarkMode";
         public static final String ENABLE_LOAD = "enableLoad";
         public static final String ENABLE_PASSIVE_LOAD = "enablePassiveLoad";
         public static final String COINS_INCREASE_LOAD = "coinsIncreaseLoad";
         public static final String ENABLE_DISCORD_RICH_PRESENCE = "enableDiscordRichPresence";
+    }
+
+    // JSON Server Settings
+    public static final class ServerSettingsKeys {
+        public static final String MAIN_PORT = "mainPort";
+        public static final String SERVICE_PORT = "servicePort";
     }
 
     // JSON Server

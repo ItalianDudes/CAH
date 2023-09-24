@@ -13,7 +13,7 @@ public final class ThemeHandler {
 
     // Methods
     public static void setConfigTheme() {
-        if (Client.getSettings().getBoolean(Defs.SettingsKeys.ENABLE_DARK_MODE)) {
+        if (Client.getSettings().getBoolean(Defs.ClientSettingsKeys.ENABLE_DARK_MODE)) {
             configTheme = Defs.Resources.get(JFXDefs.Resources.CSS.CSS_DARK_THEME).toExternalForm();
         } else {
             configTheme = Defs.Resources.get(JFXDefs.Resources.CSS.CSS_LIGHT_THEME).toExternalForm();

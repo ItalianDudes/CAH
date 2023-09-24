@@ -41,8 +41,8 @@ public final class ControllerSceneSettingsEditor {
     private void initialize() {
         Client.getStage().setResizable(true);
         DiscordRichPresenceManager.updateRichPresenceState(DiscordRichPresenceManager.States.SETTINGS);
-        toggleButtonEnableDarkMode.setSelected(Client.getSettings().getBoolean(Defs.SettingsKeys.ENABLE_DARK_MODE));
-        toggleButtonEnableDiscordRichPresence.setSelected(Client.getSettings().getBoolean(Defs.SettingsKeys.ENABLE_DISCORD_RICH_PRESENCE));
+        toggleButtonEnableDarkMode.setSelected(Client.getSettings().getBoolean(Defs.ClientSettingsKeys.ENABLE_DARK_MODE));
+        toggleButtonEnableDiscordRichPresence.setSelected(Client.getSettings().getBoolean(Defs.ClientSettingsKeys.ENABLE_DISCORD_RICH_PRESENCE));
         if (toggleButtonEnableDarkMode.isSelected()) imageViewEnableDarkMode.setImage(DARK_MODE);
         else imageViewEnableDarkMode.setImage(LIGHT_MODE);
         if (toggleButtonEnableDiscordRichPresence.isSelected()) imageViewEnableDiscordRichPresence.setImage(WUMPUS);
@@ -79,8 +79,8 @@ public final class ControllerSceneSettingsEditor {
                     @Override
                     protected Void call() {
                         try {
-                            Client.getSettings().put(Defs.SettingsKeys.ENABLE_DARK_MODE, toggleButtonEnableDarkMode.isSelected());
-                            Client.getSettings().put(Defs.SettingsKeys.ENABLE_DISCORD_RICH_PRESENCE, toggleButtonEnableDiscordRichPresence.isSelected());
+                            Client.getSettings().put(Defs.ClientSettingsKeys.ENABLE_DARK_MODE, toggleButtonEnableDarkMode.isSelected());
+                            Client.getSettings().put(Defs.ClientSettingsKeys.ENABLE_DISCORD_RICH_PRESENCE, toggleButtonEnableDiscordRichPresence.isSelected());
                         } catch (JSONException e) {
                             Logger.log(e);
                         }

@@ -119,34 +119,34 @@ public final class Client extends Application {
     // Settings Checker
     private static void fixJSONSettings() throws JSONException, IOException {
         try {
-            SETTINGS.getBoolean(Defs.SettingsKeys.ENABLE_DARK_MODE);
+            SETTINGS.getBoolean(Defs.ClientSettingsKeys.ENABLE_DARK_MODE);
         } catch (JSONException e) {
-            SETTINGS.remove(Defs.SettingsKeys.ENABLE_DARK_MODE);
-            SETTINGS.put(Defs.SettingsKeys.ENABLE_DARK_MODE, true);
+            SETTINGS.remove(Defs.ClientSettingsKeys.ENABLE_DARK_MODE);
+            SETTINGS.put(Defs.ClientSettingsKeys.ENABLE_DARK_MODE, true);
         }
         try {
-            SETTINGS.getBoolean(Defs.SettingsKeys.ENABLE_LOAD);
+            SETTINGS.getBoolean(Defs.ClientSettingsKeys.ENABLE_LOAD);
         } catch (JSONException e) {
-            SETTINGS.remove(Defs.SettingsKeys.ENABLE_LOAD);
-            SETTINGS.put(Defs.SettingsKeys.ENABLE_LOAD, true);
+            SETTINGS.remove(Defs.ClientSettingsKeys.ENABLE_LOAD);
+            SETTINGS.put(Defs.ClientSettingsKeys.ENABLE_LOAD, true);
         }
         try {
-            SETTINGS.getBoolean(Defs.SettingsKeys.ENABLE_PASSIVE_LOAD);
+            SETTINGS.getBoolean(Defs.ClientSettingsKeys.ENABLE_PASSIVE_LOAD);
         } catch (JSONException e) {
-            SETTINGS.remove(Defs.SettingsKeys.ENABLE_PASSIVE_LOAD);
-            SETTINGS.put(Defs.SettingsKeys.ENABLE_PASSIVE_LOAD, true);
+            SETTINGS.remove(Defs.ClientSettingsKeys.ENABLE_PASSIVE_LOAD);
+            SETTINGS.put(Defs.ClientSettingsKeys.ENABLE_PASSIVE_LOAD, true);
         }
         try {
-            SETTINGS.getBoolean(Defs.SettingsKeys.COINS_INCREASE_LOAD);
+            SETTINGS.getBoolean(Defs.ClientSettingsKeys.COINS_INCREASE_LOAD);
         } catch (JSONException e) {
-            SETTINGS.remove(Defs.SettingsKeys.COINS_INCREASE_LOAD);
-            SETTINGS.put(Defs.SettingsKeys.COINS_INCREASE_LOAD, true);
+            SETTINGS.remove(Defs.ClientSettingsKeys.COINS_INCREASE_LOAD);
+            SETTINGS.put(Defs.ClientSettingsKeys.COINS_INCREASE_LOAD, true);
         }
         try {
-            SETTINGS.getBoolean(Defs.SettingsKeys.ENABLE_DISCORD_RICH_PRESENCE);
+            SETTINGS.getBoolean(Defs.ClientSettingsKeys.ENABLE_DISCORD_RICH_PRESENCE);
         } catch (JSONException e) {
-            SETTINGS.remove(Defs.SettingsKeys.ENABLE_DISCORD_RICH_PRESENCE);
-            SETTINGS.put(Defs.SettingsKeys.ENABLE_DISCORD_RICH_PRESENCE, true);
+            SETTINGS.remove(Defs.ClientSettingsKeys.ENABLE_DISCORD_RICH_PRESENCE);
+            SETTINGS.put(Defs.ClientSettingsKeys.ENABLE_DISCORD_RICH_PRESENCE, true);
         }
         writeJSONSettings();
     }

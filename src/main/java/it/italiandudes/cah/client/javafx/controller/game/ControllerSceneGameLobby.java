@@ -38,7 +38,7 @@ public final class ControllerSceneGameLobby {
     private final Timeline timer = new Timeline();
     private LobbyUser lobbyUser;
     private boolean safeInterrupt = false;
-    private int seconds = Defs.LOBBY_TIMER_DURATION;
+    private int seconds = Defs.LOBBY_TIMER_DURATION_SECONDS;
 
     // Graphic Elements
     @FXML private Label labelTimer;
@@ -133,7 +133,7 @@ public final class ControllerSceneGameLobby {
 
                                     case Defs.Protocol.Lobby.START_INTERRUPT:
                                         timer.stop();
-                                        seconds = Defs.LOBBY_TIMER_DURATION;
+                                        seconds = Defs.LOBBY_TIMER_DURATION_SECONDS;
                                         Platform.runLater(() -> labelTimer.setText("Countdown: "+seconds));
                                         break;
 
