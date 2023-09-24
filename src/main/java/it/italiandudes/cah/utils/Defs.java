@@ -30,6 +30,11 @@ public final class Defs {
         }
     }
 
+    // Program Arguments
+    public static final class ProgramArguments {
+        public static final String SERVER = "-server";
+    }
+
     // JSON Settings
     public static final class SettingsKeys {
         public static final String ENABLE_DARK_MODE = "enableDarkMode";
