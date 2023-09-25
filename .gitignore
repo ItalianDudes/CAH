@@ -3,6 +3,7 @@ build/
 client_settings.json
 client_servers.json
 server_settings.json
+*.cahdb
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/

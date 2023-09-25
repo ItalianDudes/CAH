@@ -14,8 +14,8 @@ public final class Defs {
     // App File Name
     public static final String APP_FILE_NAME = "CAH";
 
-    // DB Version
-    public static final String DB_VERSION = "1.0";
+    // Database Extension
+    public static final String DB_EXTENSION = "cahdb";
 
     // Lobby Timer Duration
     public static final int LOBBY_TIMER_DURATION_SECONDS = 10;
@@ -48,6 +48,7 @@ public final class Defs {
     public static final class ServerSettingsKeys {
         public static final String MAIN_PORT = "mainPort";
         public static final String SERVICE_PORT = "servicePort";
+        public static final String DATABASE_PATH = "databasePath";
     }
 
     // JSON Server

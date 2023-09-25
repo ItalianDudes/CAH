@@ -1,4 +1,4 @@
-package it.italiandudes.cah.server.util;
+package it.italiandudes.cah.server.utils;
 
 public final class ServerDefs {
 

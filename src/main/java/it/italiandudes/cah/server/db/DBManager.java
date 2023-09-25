@@ -54,7 +54,6 @@ public final class DBManager {
         StringBuilder queryReader = new StringBuilder();
         String query;
         String buffer;
-
         while (reader.hasNext()) {
             buffer = reader.nextLine();
             queryReader.append(buffer);

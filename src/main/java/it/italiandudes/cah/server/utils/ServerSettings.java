@@ -1,4 +1,4 @@
-package it.italiandudes.cah.server.util;
+package it.italiandudes.cah.server.utils;
 
 import it.italiandudes.cah.utils.Defs;
 import it.italiandudes.idl.common.JarHandler;
@@ -39,7 +39,7 @@ public final class ServerSettings {
     @NotNull
     public static JSONObject readDefaultServerSettings() throws IOException {
         File serverSettingsFilePointer = new File(Defs.Resources.JSON.JSON_SERVER_SETTINGS);
-        JarHandler.copyFileFromJar(new File(Defs.JAR_POSITION), Defs.Resources.JSON.JSON_SERVER_SETTINGS, serverSettingsFilePointer, true);
+        JarHandler.copyFileFromJar(new File(Defs.JAR_POSITION), Defs.Resources.JSON.DEFAULT_JSON_SERVER_SETTINGS, serverSettingsFilePointer, true);
         return readServerSettings(serverSettingsFilePointer, true);
     }
     @NotNull
@@ -59,6 +59,11 @@ public final class ServerSettings {
             if (servicePort <= 0 || servicePort >= 65535) throw new JSONException("");
         } catch (JSONException e) {
             serverSettings.put(Defs.ServerSettingsKeys.SERVICE_PORT, defaultServerSettings.getInt(Defs.ServerSettingsKeys.SERVICE_PORT));
+        }
+        try {
+            serverSettings.getString(Defs.ServerSettingsKeys.DATABASE_PATH);
+        } catch (JSONException e) {
+            serverSettings.put(Defs.ServerSettingsKeys.DATABASE_PATH, defaultServerSettings.getString(Defs.ServerSettingsKeys.DATABASE_PATH));
         }
         return serverSettings;
     }
